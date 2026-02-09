@@ -14,7 +14,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/login.png'),
+          image: NetworkImage('https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
           fit: BoxFit.cover,
         ),
       ),
@@ -75,6 +75,7 @@ class _MyLoginState extends State<MyLogin> {
                                 style: TextStyle(
                                   fontSize: 27,
                                   fontWeight: FontWeight.w700,
+                                  color: Colors.white, 
                                 ),
                               ),
                               CircleAvatar(
@@ -102,7 +103,7 @@ class _MyLoginState extends State<MyLogin> {
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    color: Color(0xff4c505b),
+                                    color: Colors.white,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -113,7 +114,7 @@ class _MyLoginState extends State<MyLogin> {
                                   'Forgot Password',
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    color: Color(0xff4c505b),
+                                    color: Colors.white,
                                     fontSize: 18,
                                   ),
                                 ),
