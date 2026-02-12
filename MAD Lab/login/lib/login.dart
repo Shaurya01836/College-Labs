@@ -14,7 +14,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage('https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+          image:  AssetImage('assets/login.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -114,7 +114,7 @@ class _MyLoginState extends State<MyLogin> {
                                   'Forgot Password',
                                   style: TextStyle(
                                     decoration: TextDecoration.underline,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 18,
                                   ),
                                 ),
