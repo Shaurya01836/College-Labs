@@ -1,4 +1,4 @@
-# we have to implement stack using list 
+# we have to implement queue using list 
 
 L = [] 
 a = True
