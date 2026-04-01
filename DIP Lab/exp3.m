@@ -28,3 +28,13 @@ d=imdivide(x,y);
 figure;
 imshow(d);
 title("image after divide");
+
+
+
+
+
+
+
+
+
+

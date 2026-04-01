@@ -1,4 +1,4 @@
-i= imread('vk.jpg');
+i= imread('red.jpg');
 i = rgb2gray(i);
 subplot(2,2,1);
 imshow(i);

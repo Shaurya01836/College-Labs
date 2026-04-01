@@ -1,58 +1,64 @@
-i = imread("RCB.jpg");
-i = imresize(i,[256,256], 'bilinear');
-g = rgb2gray(i);
 
-subplot(3,3,1);
-imshow(i);
-title("Original Image");
+% Read the colour image and convert it to a grey scale image
+% Display the original image
+mycolourimage = imread('rcb.jpg');
+myimage = rgb2gray(mycolourimage);
+subplot(3, 3, 1);
+imshow(myimage); 
+title('Original image');
 
-% Salt & Pepper on grayscale
-salt = imnoise(g, "salt & pepper", 0.02);
-subplot(3,3,2);
-imshow(salt);
-title("Salt-and-pepper");
+% Apply Sobel operator
+% Display only the horizontal edges
+sobelhz = edge(myimage, 'sobel', 'horizontal');
+subplot(3, 3, 2);
+imshow(sobelhz, []); 
+title('Sobel - horizontal edges');
 
-% Uniform Noise (replaced Gaussian imnoise)
-uniform_noise = rand(256,256) * 50;
-uniform_img = double(g) + uniform_noise;
-subplot(3,3,3);
-imshow(uniform_img, []);
-title("Uniform Noise Image");
+% Apply Sobel operator
+% Display only the vertical edges
+sobelvrt = edge(myimage, 'sobel', 'vertical');
+subplot(3, 3, 3);
+imshow(sobelvrt, []); 
+title('Sobel - vertical edges');
 
-mynoise = 6+sqrt(225)*randn(256,256);
-subplot(3,3,4);
-imshow(mynoise, []);
-title("Generated Gaussian noise");
+% Apply Sobel operator
+% Display both horizontal and vertical edges
+sobelvrthz = edge(myimage, 'sobel', 'both');
+subplot(3, 3, 4);
+imshow(sobelvrthz, []); 
+title('Sobel - all edges');
 
-subplot(3,3,5);
-mynoise_img = double(g)+mynoise;
-imshow(mynoise_img, []);
-title("Gaussian image - mean 6 and variance 225");
+% Apply Roberts operator
+% Display both horizontal and vertical edges
+robertsedg = edge(myimage, 'roberts');
+subplot(3, 3, 5);
+imshow(robertsedg, []); 
+title('Roberts - all edges');
 
-subplot(3,3,6);
-[x,y] = meshgrid(1:256, 1:256);
-mysinusoidalnoise = 15*sin(2*pi/14*x+2*pi/14*y);
-mynoise_img1 = double(g) + mysinusoidalnoise;
-imshow(mynoise_img1, []);
-title("Generated sinusoidal noise");
+% Apply Prewitt operator
+% Display both horizontal and vertical edges
+prewittedg = edge(myimage, 'prewitt');
+subplot(3, 3, 6);
+imshow(prewittedg, []); 
+title('Prewitt - all edges');
 
-% Rayleigh Noise
-rayleigh_noise = sqrt(-2*log(1-rand(256,256))) * 20;
-rayleigh_img = double(g) + rayleigh_noise;
-subplot(3,3,7);
-imshow(rayleigh_img, []);
-title("Rayleigh Noise Image");
+% Apply Laplacian filter
+f = fspecial('laplacian');
+lapedg = imfilter(myimage, f, 'symmetric');
+subplot(3, 3, 7);
+imshow(lapedg, []); 
+title('Laplacian filter');
 
-% Exponential Noise
-exp_noise = -log(1-rand(256,256)) * 20;
-exp_img = double(g) + exp_noise;
-subplot(3,3,8);
-imshow(exp_img, []);
-title("Exponential Noise Image");
+% Apply LOG edge detection
+% The sigma used is 3
+f = fspecial('log', [15, 15], 3.0);
+logedg1 = edge(myimage, 'zerocross', [], f);
+subplot(3, 3, 8);
+imshow(logedg1); 
+title('Log with sigma 3');
 
-% Gamma Noise
-gamma_noise = gamrnd(2, 10, [256 256]);
-gamma_img = double(g) + gamma_noise;
-subplot(3,3,9);
-imshow(gamma_img, []);
-title("Gamma Noise Image");
+% Apply Canny edge detection
+cannyedg = edge(myimage, 'canny');
+subplot(3, 3, 9);
+imshow(cannyedg, []); 
+title('Canny edge');

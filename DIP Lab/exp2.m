@@ -42,3 +42,12 @@ cr = imcrop(I , [200,200,200,200]);
 figure;
 imshow(cr);
 title('Croped image');
+
+
+
+
+
+
+
+
+

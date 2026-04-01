@@ -35,3 +35,13 @@ title("Binary image");
 figure ; 
 improfile(S , [20,30], [50,100]);
 title("Profile of Binary image");
+
+
+
+
+
+
+
+
+
+
