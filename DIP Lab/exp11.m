@@ -1,1 +1,20 @@
-clc; clear all; close all;po = imgetfile;I = imread(po); % select coinimshow(I)% Convert to grayscaleIgray = rgb2gray(I);% Apply edge detectionBW1 = edge(Igray,'sobel');BW2 = edge(Igray,'canny');figure;imshowpair(BW1,BW2,'montage');title('Sobel Filter vs Canny Filter');
+clc;
+clear all; 
+close all;
+
+po = imgetfile;
+
+I = imread(po); % select coin
+
+imshow(I)
+
+% Convert to grayscale
+Igray = rgb2gray(I);
+
+% Apply edge detection
+BW1 = edge(Igray,'sobel');
+BW2 = edge(Igray,'canny');
+
+figure;
+imshowpair(BW1,BW2,'montage');
+title('Sobel Filter vs Canny Filter');
